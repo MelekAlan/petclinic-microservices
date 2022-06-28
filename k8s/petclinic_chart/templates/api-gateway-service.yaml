@@ -5,6 +5,7 @@ metadata:
     kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
     kompose.image-pull-secret: regcred
     kompose.service.expose: '{{ .Values.DNS_NAME }}'
+    kompose.service.nodeport.port: "30001"
     kompose.service.type: nodeport
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
@@ -14,6 +15,7 @@ metadata:
 spec:
   ports:
     - name: "8080"
+      nodePort: 30001
       port: 8080
       targetPort: 8080
   selector:
