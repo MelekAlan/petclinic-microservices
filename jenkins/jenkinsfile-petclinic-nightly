@@ -146,7 +146,7 @@ pipeline {
     post {
         always {
             echo 'Deleting all local images'
-            sh 'docker image prune -af'f
+            sh 'docker image prune -af'
             echo 'Delete the Image Repository on ECR'
             sh """
                 aws ecr delete-repository \
